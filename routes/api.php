@@ -19,11 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/test', function () {
-    return array(["test"]);
-});
-// Route::post('/test', function () {
-//     // return array(["test"]);
-//     return response()->json(["test"]);
-// });
 Route::post('/contact', [ContactController::class, 'store']);
