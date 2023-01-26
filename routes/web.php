@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Contact;
+use App\Mail\ContactConfirmation;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/mailable', function () {
+    if (App::environment('local')) {
+        $fakeContact = new Contact;
+        $fakeContact->name = "Jane";
+        return new ContactConfirmation($fakeContact);
+    } else {
+        abort(404);
+    }
 });
