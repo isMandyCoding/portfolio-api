@@ -15,7 +15,7 @@ class ContactConfirmation extends Mailable implements ShouldQueue
 {
     use SerializesModels;
 
-        /**
+    /**
      * The contact name
      *
      * @var string
@@ -41,6 +41,7 @@ class ContactConfirmation extends Mailable implements ShouldQueue
     {
         return new Envelope(
             subject: 'Contact Confirmation',
+            tags: ['contact_confirmation'],
             from: new Address(config('mail.from.address', config('mail.from.name'))),
         );
     }
@@ -56,5 +57,4 @@ class ContactConfirmation extends Mailable implements ShouldQueue
             markdown: 'emails.contactconfirmation',
         );
     }
-
 }
