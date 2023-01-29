@@ -21,4 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/contact', [ContactController::class, 'store']);
-Route::get('/resume', [ResumeController::class, 'index']);
+Route::get('/downloads/resume.pdf', [ResumeController::class, 'index']);

@@ -17,7 +17,7 @@ class ResumeController extends Controller
     public function index(Request $request)
     {
         Log::info("Resume downloaded");
-        $pathToResume = 'pdfs/MandyCodesResume.pdf';
-        return Storage::download($pathToResume);
+        $pathToResume = 'MandyCodesResume.pdf';
+        return Storage::download($pathToResume, 'MandyCodesResume.pdf');
     }
 }
